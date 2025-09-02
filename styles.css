@@ -29,10 +29,11 @@ header, nav {
   --black: #000000;
   --navback:hsl(0, 80%, 86%,0.75);
 }
-/* Add padding at the top of body so content isn't hidden behind navbar */
+
 body {
-  padding-top: 65px; /* same as navbar height */
+  padding-top: 65px; 
 }
+
 /* NAVIGATION BAR */
 
 /* Hide by default (desktop/tablet) */
@@ -52,15 +53,15 @@ body {
   align-items: center;
   padding: 0 20px;
   flex-wrap: wrap;
-  position: fixed;   /* stays fixed while scrolling */
-  top: 0;            /* always stick to the very top */
+  position: fixed;   
+  top: 0;            
   left: 0;
-  z-index: 1000;     /* stays above all other content */
+  z-index: 1000;     
 }
 
 /* LOGO */
 .nav_logo img {
-  height: 85px;  /* fits inside navbar */
+  height: 85px;  
   width: auto;
   display: block;
 }
@@ -102,8 +103,8 @@ main {
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
-  margin: 50px auto;
-  padding: 20px;
+  margin: 0 auto;
+  padding: 0px;
   gap: 40px;
   flex-wrap: wrap; /* allow stacking on small screens */
 }
@@ -111,25 +112,22 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;  /* space between the two images */
-  flex-wrap: wrap; /* stack them on small screens */
+  gap: 40px;
+  flex-wrap: nowrap; /* prevent wrapping on desktop */
 }
 
-/* Main Intro Image */
 .intro_img {
-  max-width: 500px;
+  max-width: 500px; /* fits nicely next to the portrait */
   width: 100%;
   height: auto;
   border-radius: 12px;
 }
 
-/* Second Portrait Image */
 .portrait_img {
-  max-width: 600px;
-  min-height: 400px;
+  max-width: 1000px; /* your requested width */
   width: 100%;
   height: auto;
-  padding: 5px;
+  padding: 0px;
 }
 
 
@@ -144,8 +142,29 @@ main {
 .projects h2 {
   font-size: 2rem;
   margin-bottom: 30px;
-  color: var(--black);
+  color: var(--white);
+  background-color: var(--main-color); 
+  display: inline-block;   
+  padding: 5px 10px;      
+  border-radius: 15px;    
 }
+/* Container for h2 + leaves */
+.h2-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;      /* space between leaves and text */
+  flex-wrap: nowrap; /* keep in one row */
+}
+
+/* Ensure h2 stays inline with images */
+.h2-container h2,
+.h2-container img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
 
 /* Grid Layout */
 .project_photos {
@@ -201,6 +220,39 @@ main {
   transform: translateY(0);
 }
 
+/* Leaves animation */
+@keyframes leaf-left {
+  0% {
+    transform: translateX(-150%) rotate(-30deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes leaf-right {
+  0% {
+    transform: translateX(150%) rotate(30deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Apply animation to leaves */
+.h2-container img:first-child {
+  animation: leaf-left 1s ease-out forwards;
+}
+
+.h2-container img:last-child {
+  animation: leaf-right 1s ease-out forwards;
+}
+
+
 /* ABOUT SECTION */
 .about {
   padding: 80px 20px;
@@ -220,26 +272,26 @@ main {
   display: flex;
   align-items: center;
   gap: 40px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* allows wrapping if needed */
 }
 
 .about_img {
   flex: 1;
-  max-width: 350px;
+  max-width: 350px; /* limits image size on desktop */
   border-radius: 15px;
-  border: 4px dotted var(--main-color); /* dotted border */
-  padding: 8px; /* spacing inside the border */
+  border: 4px dotted var(--main-color);
+  padding: 8px;
+  margin: 0; /* remove auto margin so it stays left */
 }
-
 
 .about_text {
   flex: 2;
   font-size: 1.2rem;
   line-height: 1.7;
-  color: var(--black);
   text-align: justify;
   text-justify: inter-word;
 }
+
 
 .about_text strong {
   color: var(--main-color);
@@ -343,14 +395,14 @@ main {
   }
 
   .nav {
-    flex-direction: column;
-    height: auto;
-    padding: 10px 20px;
+    height: 55px;        /* navbar height */
+    padding: 0 20px;     /* only horizontal padding */
     position: fixed;
-    width: 100%;
     top: 0;
-    left: 0;
+    width: 100%;
     z-index: 1000;
+    display: flex;
+    flex-direction: column; 
   }
 
   /* Logo + Hamburger container */
@@ -359,33 +411,47 @@ main {
     justify-content: space-between; /* logo left, hamburger right */
     align-items: center;
     width: 100%;
+    height: 100%;
   }
 
   /* Hamburger Button */
   .menu_toggle {
     display: block;
-    font-size: 1.8rem;
+    font-size: 1.0rem;
     cursor: pointer;
+    line-height: 1;    
+    background: none;  
+    border: none;
+    padding: 0;        
+    margin: 0;
   }
   .menu_toggle::before {
     content: "☰";
   }
   .menu_toggle.active::before {
     content: "✖";
-    font-size: 1.5rem;
+    font-size: 0.9rem;
   }
 
   /* Hide nav links by default */
+   /* Dropdown menu */
   .nav_text {
-    display: none;
+    display: none;               /* hidden by default */
+    position: absolute;          /* position relative to navbar */
+    top: 55px;                   /* right below navbar (matches navbar height) */
+    left: 50%;                   /* start from middle */
+    transform: translateX(-50%); /* center horizontally */
+    width: 90%;                  /* optional: shrink a bit from screen edges */
+    background: var(--navback);
     flex-direction: column;
-    width: 100%;
-    background: var(--main-color);
-    padding: 20px 0;
     text-align: center;
     gap: 15px;
+    border-radius: 12px;         /* optional: rounded dropdown */
+    padding: 20px 0;
+    z-index: 999;                /* above other content */
   }
 
+  
   /* Show nav when toggled */
   .nav_text.show {
     display: flex;
@@ -395,6 +461,8 @@ main {
     font-size: 18px;
   }
 
+  /*MAIN PAGE*/
+
   main p {
     font-size: 1.2rem;
   }
@@ -402,41 +470,66 @@ main {
   main img {
     max-width: 220px;
   }
+
+   .intro_container {
+    flex-direction: column; /* stack images vertically */
+    align-items: center;
+    gap: 30px;
+  }
+
+  .intro_img,
+  .portrait_img {
+    max-width: 90%; /* responsive width */
+    height: auto;
+    
+  }
+
+  .portrait_img {
+    min-width: 500px;
+    max-width: 800px; /* bigger than before on small screens */
+    margin: 0 auto; 
+  }
+
+  .intro_img {
+    max-width: 400px;       /* responsive smaller image */
+    width: 90%;
+    height: auto;
+    margin: 0 auto;         /* center */
+  }
+
+  /*PROJECTS*/
+
+  /* Keep h2 + leaves in one row on mobile */
+.h2-container {
+  flex-wrap: nowrap;       /* prevent stacking */
+  gap: 8px;                /* adjust spacing for smaller screens */
+}
+.h2-container img {
+  max-height: 40px;        /* scale down leaves if needed */
+  width: auto;
+}
+.h2-container h2 {
+  font-size: 1.5rem;       /* adjust font size for mobile */
 }
 
-
-  /* Show nav when toggled */
-  .nav_text.show {
-    display: flex;
-  }
-
-  .nav_text li a {
-    font-size: 18px;
-  }
-
-  main p {
-    font-size: 1.2rem;
-  }
-
-  main img {
-    max-width: 220px;
-  }
-
   /*ABOUT ME*/
-.about_content {
-    display: flex;
-    flex-direction: column;  /* stack image and text vertically */
-    align-items: center;     /* center items horizontally */
-    gap: 20px;               /* space between image and text */
-    text-align: center;      /* optional: center the text as well */
+  .about_content {
+    flex-direction: column;     
+    align-items: center ;
+    gap: 15px;               
+    text-align: center;        
+      
   }
 
   .about_img {
-    max-width: 80%;          /* make it responsive */
+    max-width: 350px;  
+    width: auto;       
     height: auto;
-    margin: 0 auto;          /* ensures it’s centered */
+    margin: 0 auto;
   }
 
   .about_text {
-    text-align: justify;      /* keep paragraphs justified */
+    text-align: justify;
+    width: 100%;
   }
+}
