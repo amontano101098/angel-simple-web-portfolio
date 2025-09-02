@@ -9,17 +9,26 @@
 </head>
 <body>
     <!--NAVIGATION SECTION-->
-    <header>        
-        <nav class="nav">
-            <div class="nav_logo"><a href="#HOME"><img src="./img/logo.png" alt="logo" ></a></div>
-            <ul class="nav_text">
-                <li><a href="#HOME">HOME</a></li>
-                <li><a href="#PROJECTS">PROJECTS</a></li>
-                <li><a href="#ABOUT">ABOUT</a></li>
-                <li><a href="#CONTACT">CONTACT</a></li>
-            </ul>
-            </nav>
-    </header>
+   <header>        
+  <nav class="nav">
+    <!-- Logo -->
+    <div class="nav_logo">
+      <a href="#HOME"><img src="./img/logo.png" alt="logo"></a>
+    </div>
+
+    <!-- Nav links -->
+    <ul class="nav_text" id="nav_link">
+      <li><a href="#HOME">HOME</a></li>
+      <li><a href="#PROJECTS">PROJECTS</a></li>
+      <li><a href="#ABOUT">ABOUT</a></li>
+      <li><a href="#CONTACT">CONTACT</a></li>                
+    </ul>
+
+    <!-- Hamburger / X toggle -->
+    <button id="menu_toggle" class="menu_toggle" aria-label="Menu"></button>
+  </nav>
+</header>
+
     <!--MAIN SECTION-->
     <main id="HOME">
       <div class="intro_container">
@@ -29,7 +38,7 @@
     </main>
 
     <!--PROJECT SECTION-->
-    <section class="projects" id="PROJECTS">
+    <section class="projects fade-in" id="PROJECTS">
         <h2>My Projects</h2>
         <ul class="project_photos">
            <li>
@@ -83,8 +92,12 @@
     <li><strong>LinkedIn:</strong> 
       <a href="https://www.linkedin.com/in/angelica-monta%C3%B1o-23473720b/" target="_blank">
         Angelica Montaño
-      </a>
-
-
+      </a></li>
+  </ul>
+</section>
+<!--Back to top Button-->
+<button id="backToTop">↑</button>
+<!--Import JavaSrcipt-->
+<script src="script.js"></script>
 </body>
 </html>

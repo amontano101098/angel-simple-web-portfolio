@@ -1,3 +1,6 @@
+/*Importing font*/
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+
 /* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
@@ -9,21 +12,40 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+html,body{
+  overflow-x: hidden;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+header, nav {
+  margin: 0;
+  padding: 0;
+}
 /*VARIABLES*/
 :root{
   --main-color: #f19595;
   --light-color: #f8c0c0;
   --white: #ffffff;
   --black: #000000;
+  --navback:hsl(0, 80%, 86%,0.75);
 }
 /* Add padding at the top of body so content isn't hidden behind navbar */
 body {
-  padding-top: 80px; /* same as navbar height */
+  padding-top: 65px; /* same as navbar height */
 }
 /* NAVIGATION BAR */
+
+/* Hide by default (desktop/tablet) */
+.menu_toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
 .nav {
   width: 100%;
-  height: 65px;
+  height: 75px;
   background-color: var(--main-color);
   display: flex;
   justify-content: space-between; 
@@ -38,20 +60,21 @@ body {
 
 /* LOGO */
 .nav_logo img {
-  height: 75px;  /* fits inside navbar */
+  height: 85px;  /* fits inside navbar */
   width: auto;
   display: block;
 }
+
 
 /* NAV LINKS */
 .nav_text {
   list-style: none;
   display: flex;
   gap: 20px;
-  margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: 100px;
-  padding: 0;
+  margin: 0;
+  padding-bottom: 1px;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav_text li a {
@@ -63,6 +86,14 @@ body {
 
 .nav_text li a:hover {
   color: var(--white);
+  background-color: var(--navback);
+  border-radius: 15px;
+}
+.nav_text li a.active {
+  background-color: var(--navback);
+  border-radius: 15px;
+  color: var(--white);
+  border-bottom: 2px solid var(--white);
 }
 
 /* MAIN SECTION */
@@ -100,7 +131,6 @@ main {
   height: auto;
   padding: 5px;
 }
-
 
 
 /* PROJECTS SECTION */
@@ -160,6 +190,17 @@ main {
   font-size: 1.2rem;
   color: var(--black);
 }
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ABOUT SECTION */
 .about {
   padding: 80px 20px;
@@ -248,6 +289,25 @@ main {
   border-radius: 6px;
 }
 
+/* BACK TO TOP BUTTON */
+
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--main-color);
+  color: var(--white);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: none;
+  transition: opacity 0.3s;
+}
+#backToTop.show {
+  display: block;
+}
+
 
 
 /* ---------------------- */
@@ -262,34 +322,75 @@ main {
   }
 
   main p {
-    font-size: 1.5rem; /* slightly smaller text */
+    font-size: 1.5rem;
   }
 
   main img {
-    max-width: 280px; /* scale down image */
+    max-width: 280px;
+  }
+
+  .nav_text li a {
+    font-size: 14px; /* smaller nav text */
   }
 }
 
-/* Mobile (max-width: 600px) */
-@media (max-width: 600px) {
+/* Mobile (max-width: 689px) */
+@media (max-width: 689px) {
+  body {
+    padding-top: 65px; /* keep navbar space, don’t remove */
+  }
+
   .nav {
     flex-direction: column;
     height: auto;
-    padding: 10px;
+    padding: 10px 20px;
+    position: fixed;
   }
 
+  /* Hamburger Button */
+  .menu_toggle {
+    display: block;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--black);
+    align-self: flex-end;
+  }
+
+  /* Hamburger state (☰ → ✖) */
+  .menu_toggle::before {
+    content: "☰";
+  }
+  .menu_toggle.active::before {
+    content: "✖";
+    font-size: 1.5rem;
+  }
+
+  /* Hide nav links by default */
   .nav_text {
-    margin-left: 0;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--main-color);
+    padding: 20px 0;
+    text-align: center;
     gap: 15px;
   }
 
+  /* Show nav when toggled */
+  .nav_text.show {
+    display: flex;
+  }
+
+  .nav_text li a {
+    font-size: 12px; /* smaller text on mobile */
+  }
+
   main p {
-    font-size: 1.2rem; /* more readable on small screens */
+    font-size: 1.2rem;
   }
 
   main img {
-    max-width: 220px; /* smaller image */
+    max-width: 220px;
   }
 }
+
