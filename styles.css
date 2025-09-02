@@ -237,6 +237,8 @@ main {
   font-size: 1.2rem;
   line-height: 1.7;
   color: var(--black);
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .about_text strong {
@@ -337,7 +339,7 @@ main {
 /* Mobile (max-width: 689px) */
 @media (max-width: 689px) {
   body {
-    padding-top: 65px; /* keep navbar space, don’t remove */
+    padding-top: 65px;
   }
 
   .nav {
@@ -345,6 +347,18 @@ main {
     height: auto;
     padding: 10px 20px;
     position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  /* Logo + Hamburger container */
+  .nav_header {
+    display: flex;
+    justify-content: space-between; /* logo left, hamburger right */
+    align-items: center;
+    width: 100%;
   }
 
   /* Hamburger Button */
@@ -352,11 +366,7 @@ main {
     display: block;
     font-size: 1.8rem;
     cursor: pointer;
-    color: var(--black);
-    align-self: flex-end;
   }
-
-  /* Hamburger state (☰ → ✖) */
   .menu_toggle::before {
     content: "☰";
   }
@@ -382,7 +392,7 @@ main {
   }
 
   .nav_text li a {
-    font-size: 12px; /* smaller text on mobile */
+    font-size: 18px;
   }
 
   main p {
@@ -394,3 +404,39 @@ main {
   }
 }
 
+
+  /* Show nav when toggled */
+  .nav_text.show {
+    display: flex;
+  }
+
+  .nav_text li a {
+    font-size: 18px;
+  }
+
+  main p {
+    font-size: 1.2rem;
+  }
+
+  main img {
+    max-width: 220px;
+  }
+
+  /*ABOUT ME*/
+.about_content {
+    display: flex;
+    flex-direction: column;  /* stack image and text vertically */
+    align-items: center;     /* center items horizontally */
+    gap: 20px;               /* space between image and text */
+    text-align: center;      /* optional: center the text as well */
+  }
+
+  .about_img {
+    max-width: 80%;          /* make it responsive */
+    height: auto;
+    margin: 0 auto;          /* ensures it’s centered */
+  }
+
+  .about_text {
+    text-align: justify;      /* keep paragraphs justified */
+  }
