@@ -110,10 +110,15 @@ main {
 }
 .intro_container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center;  /* center horizontally */
+  align-items: center;      /* center vertically */
   gap: 40px;
-  flex-wrap: nowrap; /* prevent wrapping on desktop */
+  flex-wrap: wrap;          /* allow wrapping if needed */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;       /* extra safeguard for inline elements */
 }
 
 .intro_img {
@@ -124,10 +129,15 @@ main {
 }
 
 .portrait_img {
-  max-width: 1000px; /* your requested width */
+  max-width: 600px; /* your requested width */
   width: 100%;
   height: auto;
   padding: 0px;
+}
+.intro_img,
+.portrait_img {
+  display: block;
+  margin: 0 auto;           /* center each image individually */
 }
 
 
@@ -383,13 +393,29 @@ main {
     max-width: 280px;
   }
 
+  /*Main page images*/
+  .intro_container {
+    flex-direction: column;   /* stack images */
+    gap: 30px;
+    align-items: center;
+  }
+
+  .intro_img {
+    max-width: 350px;
+  }
+
+  .portrait_img {
+    max-width: 400px;
+  }
+
   .nav_text li a {
     font-size: 14px; /* smaller nav text */
   }
+
 }
 
 /* Mobile (max-width: 689px) */
-@media (max-width: 689px) {
+@media (max-width: 688px) {
   body {
     padding-top: 65px;
   }
@@ -473,8 +499,9 @@ main {
 
    .intro_container {
     flex-direction: column; /* stack images vertically */
+    gap: 25px;
     align-items: center;
-    gap: 30px;
+    padding: 0 15px;
   }
 
   .intro_img,
@@ -485,13 +512,14 @@ main {
   }
 
   .portrait_img {
-    min-width: 500px;
-    max-width: 800px; /* bigger than before on small screens */
-    margin: 0 auto; 
+    max-width: 300px;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
   }
 
   .intro_img {
-    max-width: 300px;       /* responsive smaller image */
+    max-width: 250px;
     width: 90%;
     height: auto;
     margin: 0 auto;         /* center */
@@ -530,6 +558,27 @@ main {
 
   .about_text {
     text-align: justify;
+    width: 100%;
+  }
+}
+
+/* Phones (max-width: 400px) */
+@media (max-width: 400px) {
+   .intro_container {
+    flex-direction: column;      /* stack vertically */
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 0 10px;
+  }
+
+  .intro_img {
+    max-width: 120px;
+    width: 100%;
+  }
+
+  .portrait_img {
+    max-width: 150px;
     width: 100%;
   }
 }
