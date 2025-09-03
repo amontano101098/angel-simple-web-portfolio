@@ -491,7 +491,7 @@ main {
   }
 
   .intro_img {
-    max-width: 400px;       /* responsive smaller image */
+    max-width: 300px;       /* responsive smaller image */
     width: 90%;
     height: auto;
     margin: 0 auto;         /* center */
