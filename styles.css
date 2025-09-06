@@ -711,6 +711,7 @@ main {
   .about_text {
     text-align: justify;
     width: 85%;
+    font-size: 14px;
   }
 }
   
