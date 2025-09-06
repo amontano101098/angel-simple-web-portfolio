@@ -98,3 +98,52 @@ form.addEventListener("submit", async function (e) {
   }
 });
 
+ // ================================
+// Making my Project Section Dynamic
+// =================================
+
+const projects = [
+  {
+    title: "DOG MATE",
+    img: "./img/logo_dogmate.png",
+    description: `This platform helps pet owners manage and organize their pets’ important records,
+    including vaccination history, check-up schedules, and personal details. 
+    It also provides reminders for upcoming vaccines, check-ups, and vitamin intake.
+    In addition, the website helps users easily locate the nearest veterinary clinics and pet shops.`,
+    link: "#"
+  },
+  {
+    title: "PCOS NUTRITION",
+    img: "./img/PCOS_LOGO.png",
+    description: `This platform helps women with PCOS discover recipes tailored to their needs,
+    along with their nutritional macros. Women with PCOS often struggle with food 
+    choices due to insulin resistance, and this site makes it easier to plan meals 
+    that are healthy and PCOS-friendly.`,
+    link: "#"
+  },
+  {
+    title: "SAFE HAVEN",
+    img: "./img/SAFEHAVEN_LOGO.png",
+    description: `Safe Haven is a safe space for people with mental health challenges. Here, they can 
+    share their daily moods, feelings, and thoughts. The platform includes a diary feature
+    and a content filter to remove irrelevant posts, helping keep the community safe and
+    supportive. We also provide daily meditation guides to promote peace of mind and overall 
+    well-being.`,
+    link: "#"
+  }
+];
+const projectList = document.querySelector(".project_photos");
+
+projectList.innerHTML = projects.map(project => `
+  <li>
+    <img src="${project.img}" alt="${project.title}">
+    <div class="project_text">
+      <span class="project_title">${project.title}</span>
+      <p>${project.description}</p>
+      <a href="${project.link}" class="learn_more ${project.title.toLowerCase().replace(/\s+/g, "_")}_link">
+        Learn More
+      </a>
+    </div>
+  </li>
+`).join("");
+

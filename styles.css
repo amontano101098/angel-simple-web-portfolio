@@ -256,7 +256,7 @@ main {
   vertical-align: middle;
 }
 /* Fix Learn More alignment for PCOS only */
-.project_text .pcos_link {
+.project_text .pcos_nutrition_link {
   display: block;        /* keeps it below the paragraph */
   margin-top: 0.5em;     /* space under the paragraph */
   margin-left: 0;      /* match the paragraph's indent */
