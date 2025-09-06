@@ -692,4 +692,26 @@ main {
     width: 100%;
     height: auto;
   }
+  /*ABOUT ME*/
+  .about_content {
+    flex-direction: column;     
+    align-items: center ;
+    gap: 15px;               
+    text-align: center;        
+      
+  }
+
+  .about_img {
+    max-width: 200px;  
+    width: auto;       
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .about_text {
+    text-align: justify;
+    width: 85%;
+  }
 }
+  
+
