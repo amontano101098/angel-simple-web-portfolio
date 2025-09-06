@@ -69,3 +69,32 @@ menuToggle.addEventListener("click", () => {
   navLink.classList.toggle("show");
   menuToggle.classList.toggle("active"); // <-- This switches ☰ ↔ ✖
 });
+ // ================================
+// Contact Me form Clear form after sending email
+// ================================
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { Accept: "application/json" }
+    });
+
+    if (response.ok) {
+      alert("✅ Message sent successfully!");
+      form.reset(); // <-- Clears the form
+    } else {
+      alert("❌ Oops! Something went wrong.");
+    }
+  } catch (error) {
+    alert("❌ Network error. Please try again.");
+  }
+});
+

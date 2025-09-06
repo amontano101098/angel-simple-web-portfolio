@@ -12,6 +12,7 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+
 html,body{
   overflow-x: hidden;
   font-family: 'Bricolage Grotesque', sans-serif;
@@ -202,20 +203,42 @@ main {
   flex: 1;
 }
 
-.project_photos .project_text span {
-  display: block;
-  font-weight: bold;
-  font-size: 1.3rem;
-  color: var(--black);
-  margin-bottom: 10px;
-}
-
 .project_photos .project_text p {
   font-size: 1rem;
   line-height: 1.6;
-  color: #444;
+  color: var(--black);
   margin: 0;
 }
+.project_title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  display: block;
+  margin-bottom: 0.3em;
+  text-indent: 0; /* prevents indention */
+  text-align: left; /* title should stay aligned left */
+}
+
+.project_text p {
+  text-align: justify;
+  text-indent: 2em;  /* indent only paragraphs */
+  line-height: 1.6;
+  margin: 0 0 0.5em 0; /* spacing below each paragraph */
+}
+.learn_more {
+  display: inline-block;
+  margin-top: 0.5em;
+  font-size: 0.9rem;   /* smaller font */
+  text-decoration: none;
+  color: var(--main-color);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.learn_more:hover {
+  color: var(--black);
+  text-decoration: underline;
+}
+
 
 /* Container for h2 + leaves */
 .h2-container {
@@ -232,10 +255,13 @@ main {
   display: inline-block;
   vertical-align: middle;
 }
-
-
-
-
+/* Fix Learn More alignment for PCOS only */
+.project_text .pcos_link {
+  display: block;        /* keeps it below the paragraph */
+  margin-top: 0.5em;     /* space under the paragraph */
+  margin-left: 0;      /* match the paragraph's indent */
+  text-align: left;      /* keep it aligned left */
+}
 
 /* Leaves animation */
 @keyframes leaf-left {
@@ -313,7 +339,7 @@ main {
 .about_text strong {
   color: var(--main-color);
 }
-/* CONTACT SECTION */
+/* CONTACT SECTION - Details */
 .contact {
   padding: 80px 20px;
   background-color: var(--light-color);
@@ -358,6 +384,45 @@ main {
   background-color: var(--main-color);
   padding: 3px 8px;
   border-radius: 6px;
+}
+/*CONTACT ME FORM*/
+.contact_form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;          /* space between inputs */
+  max-width: 400px;   /* keeps it a nice size */
+  margin: 2rem auto;  /* centers horizontally */
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;   /* optional: white background */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* optional: subtle shadow */
+}
+
+.contact_form label {
+  text-align: left;
+  font-weight: bold;
+}
+
+.contact_form input,
+.contact_form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact_form button {
+  padding: 10px;
+  background: #f19595;   /* match your theme color */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.contact_form button:hover {
+  background: #e07c7c;
 }
 
 /* BACK TO TOP BUTTON */
@@ -557,7 +622,18 @@ main {
     width: 100%;
     max-width: 300px;
   }
+  .project_title {
+  text-align: left !important;  /* force title to stay left */
+  margin: 0 auto 0.3em 0;       /* keep spacing consistent */
+}
 
+
+.project_text .pcos_link {
+  display: inline-block;    /* keep inline */
+  text-align: left;         /* force left alignment */
+  text-indent: 0;         /* match paragraph indentation */
+  margin-top: 0.5em;
+}
   /* Keep h2 + leaves in one row on mobile */
 .h2-container {
   flex-wrap: nowrap;       /* prevent stacking */

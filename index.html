@@ -51,23 +51,47 @@
         <ul class="project_photos">
            <li>
               <img src="./img/logo_dogmate.png" alt="Project 1">
-              <span>DogMate</span>   
-              <p>This platform helps pet owners manage and organize their pets’ important records, 
+                 
+              <div class="project_text">
+                <span class="project_title">DOG MATE</span>
+                <p>
+                This platform helps pet owners manage and organize their pets’ important records,
                 including vaccination history, check-up schedules, and personal details. 
                 It also provides reminders for upcoming vaccines, check-ups, and vitamin intake.
                 In addition, the website helps users easily locate the nearest veterinary clinics and pet shops.
-              </p>
-              <a href=""> LEARN MORE </a>         
+                </p>
+                <a href="#" class="learn_more">Learn More</a>
+              </div>
+                     
            </li>
+           
            <li>
               <img src="./img/PCOS_LOGO.png" alt="Project 2">
-              <span>PCOS</span>
-              <p>PCOS Friendly Recipes</p> 
+              <div class="project_text">
+                <span class="project_title">PCOS NUTRITION</span>
+                <p>
+                This platform helps women with PCOS discover recipes tailored to their needs,
+                along with their nutritional macros.Women with PCOS often struggle with food 
+                choices due to insulin resistance, and this site makes it easier to plan meals 
+                that are healthy and PCOS-friendly.
+                </p>
+                 <a href="#" class="learn_more pcos_link"">Learn More</a>
+              </div>
+              
             </li>
             <li>
               <img src="./img/SAFEHAVEN_LOGO.png" alt="Project 3">
-              <span>SAFE HAVEN</span>
-              <p>A Safe Space for PEOPLE with MENTAL HEALTH PROBLEMS</p> 
+              <div class="project_text">
+                <span class="project_title">SAFE HAVEN</span>
+                <p>
+                Safe Haven is a safe space for people with mental health challenges. Here, they can 
+                share their daily moods, feelings, and thoughts.The platform includes a diary feature
+                and a content filter to remove irrelevant posts, helping keep the community safe and
+                supportive.We also provide daily meditation guides to promote peace of mind and overall 
+                well-being.
+                </p>
+                <a href="#" class="learn_more">Learn More</a>
+              </div>
               </li>            
                   </ul>
     </section>        
@@ -113,6 +137,19 @@
   </li>
   </ul>
 </section>
+<!-- Contact Form -->
+<form id="contactForm" class="contact_form" action="https://formspree.io/f/movnyabq" method="POST">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="_replyto" required>
+
+  <label for="message">Message</label>
+  <textarea id="message" name="message" rows="5" required></textarea>
+
+  <button type="submit">Send Message</button>
+</form>
 <!--Back to top Button-->
 <button id="backToTop">↑</button>
 <!--Import JavaSrcipt-->
