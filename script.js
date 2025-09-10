@@ -110,7 +110,7 @@ const projects = [
     including vaccination history, check-up schedules, and personal details. 
     It also provides reminders for upcoming vaccines, check-ups, and vitamin intake.
     In addition, the website helps users easily locate the nearest veterinary clinics and pet shops.`,
-    link: "#"
+    link: "https://amontano101098.github.io/Dog-Care-App/"
   },
   {
     title: "PCOS NUTRITION",
