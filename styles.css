@@ -34,7 +34,6 @@ padding-top: 80px; /* adjust to your navbar height */
 }
 /* NAVIGATION BAR */
 /* --- Center navbar-brand only --- */
-
 .navbar-brand {
   position: absolute;           /* allow centering inside nav */
   top: 50%;                     /* move to vertical middle */
@@ -64,52 +63,164 @@ padding-top: 80px; /* adjust to your navbar height */
 }
 
 
-
-/* Hide by default (desktop/tablet) */
-
-
-
-
-
-/* NAV LINKS */
-
-
 /* MAIN SECTION */
-main {
+.hero-page {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0px;
-  gap: 40px;
-  flex-wrap: wrap; /* allow stacking on small screens */
+  padding: 3rem;
+  text-align: left;
 }
-.intro_container {
+
+.hero-name {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+/* Icons arranged vertically next to image */
+.hero-icons ul {
   display: flex;
-  justify-content: center;  /* center horizontally on desktop */
-  align-items: center;      /* center vertically */
-  gap: 40px;                /* spacing between images */
-  flex-wrap: nowrap;        /* side by side on desktop */
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+  flex-direction: column;   /* vertical stack of icons */
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.intro_img {
-  max-width: 500px;  /* desktop size */
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
+.hero-icons img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
 }
 
-.portrait_img {
-  max-width: 1000px; /* desktop size */
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
+/* Hero Image */
+.hero-container .hero-image {
+  width: 700px;
+  height: 700px;
+  
+  
 }
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;       /* space between left, center, right */
+  flex-wrap: nowrap; /* prevent wrapping */
+}
+
+/* Left icons */
+.hero-icons ul,
+.hero-extra ul {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Shift left icons slightly left */
+.hero-icons {
+  transform: translateX(-20px);
+}
+
+/* Shift right icons slightly right */
+.hero-extra {
+  transform: translateX(20px);
+}
+
+/* All icons/images */
+.hero-icons img,
+.hero-extra img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+   opacity: 0; /* start invisible */
+  transform: translateX(0); /* default */
+}
+
+/* Hero center image */
+.hero-container .hero-image {
+  width: 600px;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 50%; /* optional circular image */
+}
+/* Left icons slide from left */
+.hero-icons img {
+  animation: slideInLeft 1s forwards;
+}
+
+/* Right icons slide from right */
+.hero-extra img {
+  animation: slideInRight 1s forwards;
+}
+
+/* Add small delay for each icon for stagger effect */
+.hero-icons li:nth-child(1) img { animation-delay: 0.2s; }
+.hero-icons li:nth-child(2) img { animation-delay: 0.4s; }
+.hero-icons li:nth-child(3) img { animation-delay: 0.6s; }
+
+.hero-extra li:nth-child(1) img { animation-delay: 0.2s; }
+.hero-extra li:nth-child(2) img { animation-delay: 0.4s; }
+.hero-extra li:nth-child(3) img { animation-delay: 0.6s; }
+
+/* Keyframes */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); /* start left outside */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);      /* end at original position */
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px); /* start right outside */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);    /* end at original position */
+  }
+}
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-icons img,
+  .hero-extra img {
+    width: 60px;
+    height: 60px;
+  }
+  .hero-container .hero-image {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    flex-wrap: wrap;  /* stack vertically on small screens */
+    gap: 1rem;
+  }
+  .hero-container .hero-image {
+    width: 200px;
+    height: 200px;
+  }
+  .hero-icons img,
+  .hero-extra img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+
+
 /* PROJECTS SECTION */
 .projects {
   text-align: center;
@@ -121,7 +232,7 @@ main {
 .projects h2 {
   font-size: 2rem;
   margin-bottom: 30px;
-  color: var(--white);
+  color: var(--main-color);
   
   display: inline-block;   
   padding: 5px 10px;      
@@ -389,7 +500,7 @@ main {
 
 .contact_form button {
   padding: 10px;
-  background: #f19595;   /* match your theme color */
+  background: var(--main-color);   
   color: #fff;
   border: none;
   border-radius: 4px;
