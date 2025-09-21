@@ -63,7 +63,7 @@ backToTop.addEventListener("click", () => {
 // Hamburger Menu Toggle
 // ================================
 const menuToggle = document.getElementById("menu_toggle");
-const navLink = document.getElementById("nav_link");
+const navLink = document.getElementById("nav-link");
 
 menuToggle.addEventListener("click", () => {
   navLink.classList.toggle("show");
