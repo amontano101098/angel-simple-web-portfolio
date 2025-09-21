@@ -2,7 +2,7 @@
 // Section Highlight on Scroll
 // ================================
 const sections = document.querySelectorAll("section, main");
-const navLinks = document.querySelectorAll(".nav_text li a");
+const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
 
 window.addEventListener("scroll", () => {
   let current = "";
@@ -59,17 +59,8 @@ backToTop.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// ================================
-// Hamburger Menu Toggle
-// ================================
-const menuToggle = document.getElementById("menu_toggle");
-const navLink = document.getElementById("nav-link");
 
-menuToggle.addEventListener("click", () => {
-  navLink.classList.toggle("show");
-  menuToggle.classList.toggle("active"); // <-- This switches ☰ ↔ ✖
-});
- // ================================
+// ================================
 // Contact Me form Clear form after sending email
 // ================================
 
@@ -98,7 +89,7 @@ form.addEventListener("submit", async function (e) {
   }
 });
 
- // ================================
+// ================================
 // Making my Project Section Dynamic
 // =================================
 

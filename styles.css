@@ -16,6 +16,10 @@ html {
 html,body{
   overflow-x: hidden;
   font-family: 'Bricolage Grotesque', sans-serif;
+  background-color: #f8f9fa;  /* same as navbar */
+}
+body{
+padding-top: 80px; /* adjust to your navbar height */
 }
 
 /*VARIABLES*/
@@ -28,62 +32,47 @@ html,body{
   --very-light-color: #cae9ff;
   --neutral-color :#cae9ff ;
 }
-
-body {
-  padding-top: 65px; 
-}
-
 /* NAVIGATION BAR */
-.my-navbar {
-  background-color: #ff69b4; /* replace with your own hex, rgb, or hsl color */
+/* --- Center navbar-brand only --- */
+
+.navbar-brand {
+  position: absolute;           /* allow centering inside nav */
+  top: 50%;                     /* move to vertical middle */
+  left: 50%;                    /* move to horizontal middle */
+  transform: translate(-50%, -50%);
+  display: inline-block;        /* override display:block if needed */
 }
+
+/*--- Underline nav links when hover and active*/
+/* Underline when hovering over links */
+.navbar-nav .nav-link {
+  text-decoration: none;          /* no underline by default */
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  text-decoration: underline;
+  text-underline-offset: 4px;     /* optional: lowers underline for a cleaner look */
+}
+
+/* Keep underline on the active link */
+.navbar-nav .nav-link.active {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: #0d6efd;                 /* optional: Bootstrap primary color */
+}
+
+
 
 /* Hide by default (desktop/tablet) */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #333;
-}
 
-/* LOGO */
-.navbar-brand{
-  height: 85px;  
-  width: auto;
-  display: block;
-}
+
+
 
 
 /* NAV LINKS */
-.nav_text {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  margin: 0;
-  padding-bottom: 1px;
-  justify-content: center;
-  align-items: center;
-}
 
-.nav_text li a {
-  text-decoration: none;
-  color: var(--black);
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.nav_text li a:hover {
-  color: var(--white);
-  background-color: var(--navback);
-  border-radius: 15px;
-}
-.nav_text li a.active {
-  background-color: var(--navback);
-  border-radius: 15px;
-  color: var(--white);
-  border-bottom: 2px solid var(--white);
-}
 
 /* MAIN SECTION */
 main {
@@ -125,7 +114,7 @@ main {
 .projects {
   text-align: center;
   padding: 60px 20px;
-  background-color: var(--light-color);
+ 
   border-radius: 15px;
 }
 
@@ -133,7 +122,7 @@ main {
   font-size: 2rem;
   margin-bottom: 30px;
   color: var(--white);
-  background-color: var(--main-color); 
+  
   display: inline-block;   
   padding: 5px 10px;      
   border-radius: 15px;    
