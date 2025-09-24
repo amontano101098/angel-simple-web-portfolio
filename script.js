@@ -95,6 +95,16 @@ form.addEventListener("submit", async function (e) {
 
 const projects = [
   {
+    title: "CRITTER COVE",
+    img: "./img/crittercove.png",
+    description: `CritterCove is a one-stop haven for your furry, feathered,
+    and four-legged friends. Whether you're looking to
+    adopt a new best friend, glam them up in their next
+    OOTD, or book a weekend getaway (yes, for your pet!),
+    CritterCove has it all. It is the ULTIMATE pet paradise.`,
+    link: "https://joanneblocks.github.io/2025_CritterCove/index.html"
+  },
+  {
     title: "DOG MATE",
     img: "./img/logo_dogmate.png",
     description: `This platform helps pet owners manage and organize their pets’ important records,
@@ -102,15 +112,6 @@ const projects = [
     It also provides reminders for upcoming vaccines, check-ups, and vitamin intake.
     In addition, the website helps users easily locate the nearest veterinary clinics and pet shops.`,
     link: "https://amontano101098.github.io/Dog-Care-App/"
-  },
-  {
-    title: "PCOS NUTRITION",
-    img: "./img/PCOS_LOGO.png",
-    description: `This platform helps women with PCOS discover recipes tailored to their needs,
-    along with their nutritional macros. Women with PCOS often struggle with food 
-    choices due to insulin resistance, and this site makes it easier to plan meals 
-    that are healthy and PCOS-friendly.`,
-    link: "#"
   },
   {
     title: "SAFE HAVEN",

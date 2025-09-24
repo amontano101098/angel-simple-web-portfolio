@@ -13,53 +13,65 @@ html {
   box-sizing: border-box;
 }
 
-html,body{
+html,
+body {
   overflow-x: hidden;
   font-family: 'Bricolage Grotesque', sans-serif;
-  background-color: #f8f9fa;  /* same as navbar */
+  background-color: #f8f9fa;
+  /* same as navbar */
 }
-body{
-padding-top: 80px; /* adjust to your navbar height */
+
+body {
+  padding-top: 80px;
+  /* adjust to your navbar height */
 }
 
 /*VARIABLES*/
-:root{
+:root {
   --main-color: #62b6cb;
   --light-color: #bee9e8;
   --dark-color: #cae9ff;
   --white: #ffffff;
   --black: #000000;
   --very-light-color: #cae9ff;
-  --neutral-color :#cae9ff ;
+  --neutral-color: #cae9ff;
 }
+
 /* NAVIGATION BAR */
 /* --- Center navbar-brand only --- */
 .navbar-brand {
-  position: absolute;           /* allow centering inside nav */
-  top: 50%;                     /* move to vertical middle */
-  left: 50%;                    /* move to horizontal middle */
+  position: absolute;
+  /* allow centering inside nav */
+  top: 50%;
+  /* move to vertical middle */
+  left: 50%;
+  /* move to horizontal middle */
   transform: translate(-50%, -50%);
-  display: inline-block;        /* override display:block if needed */
+  display: inline-block;
+  /* override display:block if needed */
 }
 
 /*--- Underline nav links when hover and active*/
 /* Underline when hovering over links */
 .navbar-nav .nav-link {
-  text-decoration: none;          /* no underline by default */
+  text-decoration: none;
+  /* no underline by default */
   transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
   text-decoration: underline;
-  text-underline-offset: 4px;     /* optional: lowers underline for a cleaner look */
+  text-underline-offset: 4px;
+  /* optional: lowers underline for a cleaner look */
 }
 
 /* Keep underline on the active link */
 .navbar-nav .nav-link.active {
   text-decoration: underline;
   text-underline-offset: 4px;
-  color: #0d6efd;                 /* optional: Bootstrap primary color */
+  color: #0d6efd;
+  /* optional: Bootstrap primary color */
 }
 
 
@@ -81,7 +93,8 @@ padding-top: 80px; /* adjust to your navbar height */
 /* Icons arranged vertically next to image */
 .hero-icons ul {
   display: flex;
-  flex-direction: column;   /* vertical stack of icons */
+  flex-direction: column;
+  /* vertical stack of icons */
   gap: 1rem;
   list-style: none;
   padding: 0;
@@ -98,22 +111,26 @@ padding-top: 80px; /* adjust to your navbar height */
 .hero-container .hero-image {
   width: 700px;
   height: 700px;
-  
-  
+
+
 }
+
 .hero-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;       /* space between left, center, right */
-  flex-wrap: nowrap; /* prevent wrapping */
+  gap: 2rem;
+  /* space between left, center, right */
+  flex-wrap: nowrap;
+  /* prevent wrapping */
 }
 
 /* Left icons */
 .hero-icons ul,
 .hero-extra ul {
   display: flex;
-  flex-direction: column; /* stack vertically */
+  flex-direction: column;
+  /* stack vertically */
   gap: 1rem;
   list-style: none;
   padding: 0;
@@ -136,8 +153,10 @@ padding-top: 80px; /* adjust to your navbar height */
   width: 150px;
   height: 150px;
   object-fit: contain;
-   opacity: 0; /* start invisible */
-  transform: translateX(0); /* default */
+  opacity: 0;
+  /* start invisible */
+  transform: translateX(0);
+  /* default */
 }
 
 /* Hero center image */
@@ -145,8 +164,10 @@ padding-top: 80px; /* adjust to your navbar height */
   width: 600px;
   height: 600px;
   object-fit: cover;
-  border-radius: 50%; /* optional circular image */
+  border-radius: 50%;
+  /* optional circular image */
 }
+
 /* Left icons slide from left */
 .hero-icons img {
   animation: slideInLeft 1s forwards;
@@ -158,45 +179,69 @@ padding-top: 80px; /* adjust to your navbar height */
 }
 
 /* Add small delay for each icon for stagger effect */
-.hero-icons li:nth-child(1) img { animation-delay: 0.2s; }
-.hero-icons li:nth-child(2) img { animation-delay: 0.4s; }
-.hero-icons li:nth-child(3) img { animation-delay: 0.6s; }
+.hero-icons li:nth-child(1) img {
+  animation-delay: 0.2s;
+}
 
-.hero-extra li:nth-child(1) img { animation-delay: 0.2s; }
-.hero-extra li:nth-child(2) img { animation-delay: 0.4s; }
-.hero-extra li:nth-child(3) img { animation-delay: 0.6s; }
+.hero-icons li:nth-child(2) img {
+  animation-delay: 0.4s;
+}
+
+.hero-icons li:nth-child(3) img {
+  animation-delay: 0.6s;
+}
+
+.hero-extra li:nth-child(1) img {
+  animation-delay: 0.2s;
+}
+
+.hero-extra li:nth-child(2) img {
+  animation-delay: 0.4s;
+}
+
+.hero-extra li:nth-child(3) img {
+  animation-delay: 0.6s;
+}
 
 /* Keyframes */
 @keyframes slideInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px); /* start left outside */
+    transform: translateX(-100px);
+    /* start left outside */
   }
+
   100% {
     opacity: 1;
-    transform: translateX(0);      /* end at original position */
+    transform: translateX(0);
+    /* end at original position */
   }
 }
 
 @keyframes slideInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px); /* start right outside */
+    transform: translateX(100px);
+    /* start right outside */
   }
+
   100% {
     opacity: 1;
-    transform: translateX(0);    /* end at original position */
+    transform: translateX(0);
+    /* end at original position */
   }
 }
 
 
 /* Responsive */
 @media (max-width: 1024px) {
+
   .hero-icons img,
   .hero-extra img {
     width: 60px;
     height: 60px;
   }
+
   .hero-container .hero-image {
     width: 250px;
     height: 250px;
@@ -205,13 +250,16 @@ padding-top: 80px; /* adjust to your navbar height */
 
 @media (max-width: 768px) {
   .hero-content {
-    flex-wrap: wrap;  /* stack vertically on small screens */
+    flex-wrap: wrap;
+    /* stack vertically on small screens */
     gap: 1rem;
   }
+
   .hero-container .hero-image {
     width: 200px;
     height: 200px;
   }
+
   .hero-icons img,
   .hero-extra img {
     width: 50px;
@@ -225,7 +273,7 @@ padding-top: 80px; /* adjust to your navbar height */
 .projects {
   text-align: center;
   padding: 60px 20px;
- 
+
   border-radius: 15px;
 }
 
@@ -233,21 +281,23 @@ padding-top: 80px; /* adjust to your navbar height */
   font-size: 2rem;
   margin-bottom: 30px;
   color: var(--main-color);
-  
-  display: inline-block;   
-  padding: 5px 10px;      
-  border-radius: 15px;    
+
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
 }
 
 /* Project List Layout */
 .project_photos {
   display: flex;
-  flex-direction: column;   /* stack projects vertically */
+  flex-direction: column;
+  /* stack projects vertically */
   gap: 40px;
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  max-width: 1000px;         /* keeps section centered */
+  max-width: 1000px;
+  /* keeps section centered */
 }
 
 /* Project Card */
@@ -255,11 +305,12 @@ padding-top: 80px; /* adjust to your navbar height */
   background: var(--white);
   border-radius: 15px;
   padding: 25px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   display: flex;
-  flex-direction: row;      /* image + text side by side */
+  flex-direction: row;
+  /* image + text side by side */
   align-items: center;
   gap: 25px;
   text-align: left;
@@ -267,13 +318,15 @@ padding-top: 80px; /* adjust to your navbar height */
 
 /* Alternate layout: even projects */
 .project_photos li:nth-child(even) {
-  flex-direction: row-reverse; /* swap → image right, text left */
+  flex-direction: row-reverse;
+  /* swap → image right, text left */
   text-align: right;
 }
+
 /* Hover effect */
 .project_photos li:hover {
   transform: translateY(-5px);
-  box-shadow: 0px 6px 18px rgba(0,0,0,0.2);
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 /* Project Image */
@@ -281,7 +334,8 @@ padding-top: 80px; /* adjust to your navbar height */
   width: 220px;
   height: auto;
   border-radius: 10px;
-  flex-shrink: 0;           /* don’t let image shrink */
+  flex-shrink: 0;
+  /* don’t let image shrink */
   object-fit: cover;
 }
 
@@ -296,25 +350,32 @@ padding-top: 80px; /* adjust to your navbar height */
   color: var(--black);
   margin: 0;
 }
+
 .project_title {
   font-weight: bold;
   font-size: 1.3rem;
   display: block;
   margin-bottom: 0.3em;
-  text-indent: 0; /* prevents indention */
-  text-align: left; /* title should stay aligned left */
+  text-indent: 0;
+  /* prevents indention */
+  text-align: left;
+  /* title should stay aligned left */
 }
 
 .project_text p {
   text-align: justify;
-  text-indent: 2em;  /* indent only paragraphs */
+  text-indent: 2em;
+  /* indent only paragraphs */
   line-height: 1.6;
-  margin: 0 0 0.5em 0; /* spacing below each paragraph */
+  margin: 0 0 0.5em 0;
+  /* spacing below each paragraph */
 }
+
 .learn_more {
   display: inline-block;
   margin-top: 0.5em;
-  font-size: 0.9rem;   /* smaller font */
+  font-size: 0.9rem;
+  /* smaller font */
   text-decoration: none;
   color: var(--main-color);
   font-weight: bold;
@@ -332,8 +393,10 @@ padding-top: 80px; /* adjust to your navbar height */
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;      /* space between leaves and text */
-  flex-wrap: nowrap; /* keep in one row */
+  gap: 10px;
+  /* space between leaves and text */
+  flex-wrap: nowrap;
+  /* keep in one row */
 }
 
 /* Ensure h2 stays inline with images */
@@ -342,12 +405,17 @@ padding-top: 80px; /* adjust to your navbar height */
   display: inline-block;
   vertical-align: middle;
 }
+
 /* Fix Learn More alignment for PCOS only */
 .project_text .pcos_nutrition_link {
-  display: block;        /* keeps it below the paragraph */
-  margin-top: 0.5em;     /* space under the paragraph */
-  margin-left: 0;      /* match the paragraph's indent */
-  text-align: left;      /* keep it aligned left */
+  display: block;
+  /* keeps it below the paragraph */
+  margin-top: 0.5em;
+  /* space under the paragraph */
+  margin-left: 0;
+  /* match the paragraph's indent */
+  text-align: left;
+  /* keep it aligned left */
 }
 
 /* Leaves animation */
@@ -356,6 +424,7 @@ padding-top: 80px; /* adjust to your navbar height */
     transform: translateX(-150%) rotate(-30deg);
     opacity: 0;
   }
+
   100% {
     transform: translateX(0) rotate(0deg);
     opacity: 1;
@@ -367,6 +436,7 @@ padding-top: 80px; /* adjust to your navbar height */
     transform: translateX(150%) rotate(30deg);
     opacity: 0;
   }
+
   100% {
     transform: translateX(0) rotate(0deg);
     opacity: 1;
@@ -402,16 +472,19 @@ padding-top: 80px; /* adjust to your navbar height */
   display: flex;
   align-items: center;
   gap: 40px;
-  flex-wrap: wrap; /* allows wrapping if needed */
+  flex-wrap: wrap;
+  /* allows wrapping if needed */
 }
 
 .about_img {
   flex: 1;
-  max-width: 350px; /* limits image size on desktop */
+  max-width: 350px;
+  /* limits image size on desktop */
   border-radius: 15px;
   border: 4px dotted var(--main-color);
   padding: 8px;
-  margin: 0; /* remove auto margin so it stays left */
+  margin: 0;
+  /* remove auto margin so it stays left */
 }
 
 .about_text {
@@ -426,6 +499,7 @@ padding-top: 80px; /* adjust to your navbar height */
 .about_text strong {
   color: var(--main-color);
 }
+
 /* CONTACT SECTION - Details */
 .contact {
   padding: 80px 20px;
@@ -472,18 +546,24 @@ padding-top: 80px; /* adjust to your navbar height */
   padding: 3px 8px;
   border-radius: 6px;
 }
+
 /*CONTACT ME FORM*/
 .contact_form {
   display: flex;
   flex-direction: column;
-  gap: 10px;          /* space between inputs */
-  max-width: 400px;   /* keeps it a nice size */
-  margin: 2rem auto;  /* centers horizontally */
+  gap: 10px;
+  /* space between inputs */
+  max-width: 400px;
+  /* keeps it a nice size */
+  margin: 2rem auto;
+  /* centers horizontally */
   padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 8px;
-  background: #fff;   /* optional: white background */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* optional: subtle shadow */
+  background: #fff;
+  /* optional: white background */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  /* optional: subtle shadow */
 }
 
 .contact_form label {
@@ -500,7 +580,7 @@ padding-top: 80px; /* adjust to your navbar height */
 
 .contact_form button {
   padding: 10px;
-  background: var(--main-color);   
+  background: var(--main-color);
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -527,6 +607,7 @@ padding-top: 80px; /* adjust to your navbar height */
   display: none;
   transition: opacity 0.3s;
 }
+
 #backToTop.show {
   display: block;
 }
@@ -553,7 +634,8 @@ padding-top: 80px; /* adjust to your navbar height */
 /* Tablets (max-width: 900px) */
 @media (max-width: 900px) {
   main {
-    flex-direction: column; /* stack text and image */
+    flex-direction: column;
+    /* stack text and image */
     text-align: center;
   }
 
@@ -567,7 +649,8 @@ padding-top: 80px; /* adjust to your navbar height */
 
   /*Main page images*/
   .intro_container {
-    flex-direction: column;   /* stack images */
+    flex-direction: column;
+    /* stack images */
     gap: 30px;
     align-items: center;
   }
@@ -581,10 +664,23 @@ padding-top: 80px; /* adjust to your navbar height */
   }
 
   .nav_text li a {
-    font-size: 14px; /* smaller nav text */
+    font-size: 14px;
+    /* smaller nav text */
+  }
+
+  .hero-icons img,
+  .hero-extra img {
+    width: 60px;
+  }
+
+  .hero-content {
+    gap: 1.5rem;
   }
 
 }
+
+
+
 
 /* Mobile (max-width: 700px) */
 @media (max-width: 700px) {
@@ -593,20 +689,23 @@ padding-top: 80px; /* adjust to your navbar height */
   }
 
   .nav {
-    height: 55px;        /* navbar height */
-    padding: 0 20px;     /* only horizontal padding */
+    height: 55px;
+    /* navbar height */
+    padding: 0 20px;
+    /* only horizontal padding */
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
   }
 
   /* Logo + Hamburger container */
   .navheader {
     display: flex;
-    justify-content: space-between; /* logo left, hamburger right */
+    justify-content: space-between;
+    /* logo left, hamburger right */
     align-items: center;
     width: 100%;
     height: 100%;
@@ -617,39 +716,49 @@ padding-top: 80px; /* adjust to your navbar height */
     display: block;
     font-size: 1.0rem;
     cursor: pointer;
-    line-height: 1;    
-    background: none;  
+    line-height: 1;
+    background: none;
     border: none;
-    padding: 0;        
+    padding: 0;
     margin: 0;
   }
+
   .menu-toggle::before {
     content: "☰";
   }
+
   .menu-toggle.active::before {
     content: "✖";
     font-size: 0.9rem;
   }
 
   /* Hide nav links by default */
-   /* Dropdown menu */
+  /* Dropdown menu */
   .nav_text {
-    display: none;               /* hidden by default */
-    position: absolute;          /* position relative to navbar */
-    top: 55px;                   /* right below navbar (matches navbar height) */
-    left: 50%;                   /* start from middle */
-    transform: translateX(-50%); /* center horizontally */
-    width: 90%;                  /* optional: shrink a bit from screen edges */
+    display: none;
+    /* hidden by default */
+    position: absolute;
+    /* position relative to navbar */
+    top: 55px;
+    /* right below navbar (matches navbar height) */
+    left: 50%;
+    /* start from middle */
+    transform: translateX(-50%);
+    /* center horizontally */
+    width: 90%;
+    /* optional: shrink a bit from screen edges */
     background: var(--navback);
     flex-direction: column;
     text-align: center;
     gap: 15px;
-    border-radius: 12px;         /* optional: rounded dropdown */
+    border-radius: 12px;
+    /* optional: rounded dropdown */
     padding: 20px 0;
-    z-index: 999;                /* above other content */
+    z-index: 999;
+    /* above other content */
   }
 
-  
+
   /* Show nav when toggled */
   .nav_text.show {
     display: flex;
@@ -669,8 +778,9 @@ padding-top: 80px; /* adjust to your navbar height */
     max-width: 220px;
   }
 
-   .intro_container {
-    flex-direction: column; /* stack images vertically */
+  .intro_container {
+    flex-direction: column;
+    /* stack images vertically */
     gap: 25px;
     align-items: center;
     padding: 0 15px;
@@ -678,9 +788,10 @@ padding-top: 80px; /* adjust to your navbar height */
 
   .intro_img,
   .portrait_img {
-    max-width: 90%; /* responsive width */
+    max-width: 90%;
+    /* responsive width */
     height: auto;
-    
+
   }
 
   .portrait_img {
@@ -694,14 +805,16 @@ padding-top: 80px; /* adjust to your navbar height */
     max-width: 250px;
     width: 90%;
     height: auto;
-    margin: 0 auto;         /* center */
+    margin: 0 auto;
+    /* center */
   }
 
   /*PROJECTS*/
 
   .project_photos li,
   .project_photos li:nth-child(even) {
-    flex-direction: column; /* override alternating layout */
+    flex-direction: column;
+    /* override alternating layout */
     text-align: center;
   }
 
@@ -709,43 +822,56 @@ padding-top: 80px; /* adjust to your navbar height */
     width: 100%;
     max-width: 300px;
   }
+
   .project_title {
-  text-align: left !important;  /* force title to stay left */
-  margin: 0 auto 0.3em 0;       /* keep spacing consistent */
-}
+    text-align: left !important;
+    /* force title to stay left */
+    margin: 0 auto 0.3em 0;
+    /* keep spacing consistent */
+  }
 
 
-.project_text .pcos_nutrition_link {
-  display: inline-block;    /* keep inline */
-  text-align: center;         /* force left alignment */
-  text-indent: 0;         /* match paragraph indentation */
-  margin-top: 0.5em;
-}
+  .project_text .pcos_nutrition_link {
+    display: inline-block;
+    /* keep inline */
+    text-align: center;
+    /* force left alignment */
+    text-indent: 0;
+    /* match paragraph indentation */
+    margin-top: 0.5em;
+  }
+
   /* Keep h2 + leaves in one row on mobile */
-.h2-container {
-  flex-wrap: nowrap;       /* prevent stacking */
-  gap: 8px;                /* adjust spacing for smaller screens */
-}
-.h2-container img {
-  max-height: 40px;        /* scale down leaves if needed */
-  width: auto;
-}
-.h2-container h2 {
-  font-size: 1.5rem;       /* adjust font size for mobile */
-}
+  .h2-container {
+    flex-wrap: nowrap;
+    /* prevent stacking */
+    gap: 8px;
+    /* adjust spacing for smaller screens */
+  }
+
+  .h2-container img {
+    max-height: 40px;
+    /* scale down leaves if needed */
+    width: auto;
+  }
+
+  .h2-container h2 {
+    font-size: 1.5rem;
+    /* adjust font size for mobile */
+  }
 
   /*ABOUT ME*/
   .about_content {
-    flex-direction: column;     
-    align-items: center ;
-    gap: 15px;               
-    text-align: center;        
-      
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+
   }
 
   .about_img {
-    max-width: 350px;  
-    width: auto;       
+    max-width: 350px;
+    width: auto;
     height: auto;
     margin: 0 auto;
   }
@@ -754,14 +880,25 @@ padding-top: 80px; /* adjust to your navbar height */
     text-align: justify;
     width: 100%;
   }
+
+  .hero-icons img,
+  .hero-extra img {
+    width: 45px;
+  }
+
+  .hero-content {
+    gap: 1rem;
+  }
 }
+
 
 
 
 /* Phones (max-width: 400px) */
 @media (max-width: 400px) {
-   .intro_container {
-    flex-direction: column;      /* stack vertically */
+  .intro_container {
+    flex-direction: column;
+    /* stack vertically */
     justify-content: center;
     align-items: center;
     gap: 15px;
@@ -779,18 +916,19 @@ padding-top: 80px; /* adjust to your navbar height */
     width: 100%;
     height: auto;
   }
+
   /*ABOUT ME*/
   .about_content {
-    flex-direction: column;     
-    align-items: center ;
-    gap: 15px;               
-    text-align: center;        
-      
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+
   }
 
   .about_img {
-    max-width: 200px;  
-    width: auto;       
+    max-width: 200px;
+    width: auto;
     height: auto;
     margin: 0 auto;
   }
@@ -800,6 +938,13 @@ padding-top: 80px; /* adjust to your navbar height */
     width: 85%;
     font-size: 14px;
   }
-}
-  
 
+  .hero-icons img,
+  .hero-extra img {
+    width: 35px;
+  }
+
+  .hero-content {
+    gap: 0.5rem;
+  }
+}
