@@ -30,15 +30,17 @@ body {
 :root {
   --main-color: #62b6cb;
   --light-color: #bee9e8;
-  --dark-color: #cae9ff;
   --white: #ffffff;
   --black: #000000;
-  --very-light-color: #cae9ff;
-  --neutral-color: #cae9ff;
 }
 
 /* NAVIGATION BAR */
 /* --- Center navbar-brand only --- */
+.navbar-collapse.collapse.show {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
 .navbar-brand {
   position: absolute;
   /* allow centering inside nav */
@@ -90,17 +92,6 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Icons arranged vertically next to image */
-.hero-icons ul {
-  display: flex;
-  flex-direction: column;
-  /* vertical stack of icons */
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
 .hero-icons img {
   width: 200px;
   height: 200px;
@@ -111,8 +102,6 @@ body {
 .hero-container .hero-image {
   width: 700px;
   height: 700px;
-
-
 }
 
 .hero-content {
@@ -288,6 +277,24 @@ body {
 }
 
 /* Project List Layout */
+.h2-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* horizontally center */
+  align-items: center;
+  /* vertically center if it grows taller */
+  padding: 1rem 0;
+  /* optional breathing space */
+}
+
+.h2-container .project-title {
+  max-width: 350px;
+  width: 100%;
+  height: auto;
+
+}
+
 .project_photos {
   display: flex;
   flex-direction: column;
@@ -352,15 +359,21 @@ body {
 }
 
 .project_title {
-  font-weight: bold;
-  font-size: 1.3rem;
+
   display: block;
-  margin-bottom: 0.3em;
-  text-indent: 0;
-  /* prevents indention */
-  text-align: left;
-  /* title should stay aligned left */
+  /* ensure it behaves like a block element */
+  text-align: left !important;
+  /* force text to start at the left */
+  margin-left: 0 !important;
+  /* remove any auto-centering margin */
+  max-width: 90%;
+  /* never exceed 90% of the container */
+  height: auto;
+  /* maintain aspect ratio */
+  max-height: 200px;
+  /* optional: cap the height for huge screens */
 }
+
 
 .project_text p {
   text-align: justify;
@@ -388,17 +401,6 @@ body {
 }
 
 
-/* Container for h2 + leaves */
-.h2-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  /* space between leaves and text */
-  flex-wrap: nowrap;
-  /* keep in one row */
-}
-
 /* Ensure h2 stays inline with images */
 .h2-container h2,
 .h2-container img {
@@ -406,8 +408,8 @@ body {
   vertical-align: middle;
 }
 
-/* Fix Learn More alignment for PCOS only */
-.project_text .pcos_nutrition_link {
+/* Fix Learn More alignment  */
+.project_text .dog_mate_link {
   display: block;
   /* keeps it below the paragraph */
   margin-top: 0.5em;
@@ -621,15 +623,7 @@ body {
 /* ---------------------- */
 /* Medium screens: ≤1200px */
 /* ---------------------- */
-@media (max-width: 1500px) {
-  .intro_img {
-    width: 35%;
-  }
-
-  .portrait_img {
-    width: 55%;
-  }
-}
+@media (max-width: 1500px) {}
 
 /* Tablets (max-width: 900px) */
 @media (max-width: 900px) {
@@ -647,22 +641,6 @@ body {
     max-width: 280px;
   }
 
-  /*Main page images*/
-  .intro_container {
-    flex-direction: column;
-    /* stack images */
-    gap: 30px;
-    align-items: center;
-  }
-
-  .intro_img {
-    max-width: 350px;
-  }
-
-  .portrait_img {
-    max-width: 400px;
-  }
-
   .nav_text li a {
     font-size: 14px;
     /* smaller nav text */
@@ -676,7 +654,6 @@ body {
   .hero-content {
     gap: 1.5rem;
   }
-
 }
 
 
@@ -746,15 +723,13 @@ body {
     transform: translateX(-50%);
     /* center horizontally */
     width: 90%;
-    /* optional: shrink a bit from screen edges */
-    background: var(--navback);
     flex-direction: column;
     text-align: center;
     gap: 15px;
     border-radius: 12px;
     /* optional: rounded dropdown */
     padding: 20px 0;
-    z-index: 999;
+
     /* above other content */
   }
 
@@ -770,44 +745,17 @@ body {
 
   /*MAIN PAGE*/
 
-  main p {
-    font-size: 1.2rem;
+  .hero-icons img,
+  .hero-extra img {
+    width: 60px;
   }
 
-  main img {
-    max-width: 220px;
+  .hero-content {
+    gap: 1.5rem;
   }
 
-  .intro_container {
-    flex-direction: column;
-    /* stack images vertically */
-    gap: 25px;
-    align-items: center;
-    padding: 0 15px;
-  }
 
-  .intro_img,
-  .portrait_img {
-    max-width: 90%;
-    /* responsive width */
-    height: auto;
 
-  }
-
-  .portrait_img {
-    max-width: 300px;
-    width: 90%;
-    height: auto;
-    margin: 0 auto;
-  }
-
-  .intro_img {
-    max-width: 250px;
-    width: 90%;
-    height: auto;
-    margin: 0 auto;
-    /* center */
-  }
 
   /*PROJECTS*/
 
@@ -831,7 +779,7 @@ body {
   }
 
 
-  .project_text .pcos_nutrition_link {
+  .project_text .dog_mate_link {
     display: inline-block;
     /* keep inline */
     text-align: center;
@@ -841,17 +789,8 @@ body {
     margin-top: 0.5em;
   }
 
-  /* Keep h2 + leaves in one row on mobile */
-  .h2-container {
-    flex-wrap: nowrap;
-    /* prevent stacking */
-    gap: 8px;
-    /* adjust spacing for smaller screens */
-  }
-
   .h2-container img {
-    max-height: 40px;
-    /* scale down leaves if needed */
+    max-height: 150px;
     width: auto;
   }
 
@@ -894,27 +833,28 @@ body {
 
 
 
-/* Phones (max-width: 400px) */
-@media (max-width: 400px) {
-  .intro_container {
-    flex-direction: column;
-    /* stack vertically */
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    padding: 0 10px;
+/* Phones (max-width: 450px) */
+@media (max-width: 430px) {
+
+  .hero-icons img,
+  .hero-extra img {
+    width: 20px;
+    height: 20px;
   }
 
-  .intro_img {
-    max-width: 200px;
-    width: 100%;
-    height: auto;
+  .hero-icons,
+  .hero-extra {
+    flex-direction: row;
+    /* stay horizontal */
+    gap: 0.5rem;
+    /* optional: tighter spacing */
   }
 
-  .portrait_img {
-    max-width: 300px;
-    width: 100%;
-    height: auto;
+  /*PROJECTS SECTION*/
+  .project-title {
+    max-width: 80%;
+    /* slightly smaller on tiny screens */
+    max-height: 150px;
   }
 
   /*ABOUT ME*/
@@ -938,13 +878,58 @@ body {
     width: 85%;
     font-size: 14px;
   }
+}
+
+@media (max-width: 370px) {
 
   .hero-icons img,
   .hero-extra img {
-    width: 35px;
+    width: 16px;
+    height: 16px;
   }
+}
 
+@media (max-width: 344px) {
   .hero-content {
     gap: 0.5rem;
   }
+
+  .hero-icons img,
+  .hero-extra img {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* === MOBILE NAVBAR DROPDOWN FIX === */
+#navbarMobile.navbar-collapse {
+  top: 56px;
+  /* adjust if your navbar is taller */
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border-top: none;
+}
+
+#navbarMobile {
+  text-align: left;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  box-shadow: none;
+  z-index: 1050;
+}
+
+#navbarMobile .nav-link {
+  padding: 0.75rem 1rem;
+  color: #212529 !important;
+  /* same default color as navbar-light links */
+  padding-left: 1rem;
+  /* nice left spacing */
+}
+
+/* Optional: keep the same hover/focus color as wide screen */
+#navbarMobile .nav-link:hover,
+#navbarMobile .nav-link:focus {
+  color: #0d6efd !important;
+  /* or whatever hover color you prefer */
 }

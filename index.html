@@ -17,35 +17,29 @@
   <!--NAVIGATION SECTION-->
   <header class="my-navbar">
     <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-      <!-- Left-aligned navigation -->
-      <div class="collapse navbar-collapse" id="navbarContent">
+      <!-- Desktop & tablet menu -->
+      <div class="collapse navbar-collapse d-none d-md-flex" id="navbarDesktop">
         <ul class="navbar-nav me-auto">
           <li class="nav-item"><a class="nav-link" href="#HOME">Home</a></li>
-          <li class="nav-item">
-            <a class="nav-link" href="#PROJECTS">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#ABOUT">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#CONTACT">Contact</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="#PROJECTS">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ABOUT">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#CONTACT">Contact</a></li>
         </ul>
       </div>
 
-      <!-- Centered logo -->
+      <!-- Center logo -->
       <a class="navbar-brand position-absolute top-50 start-50 translate-middle" href="#HOME">
         <img src="./img/logo.png" alt="Angel logo" height="80" />
       </a>
 
-      <!-- Mobile toggle -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- Mobile toggler -->
+      <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarMobile"
+        aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!--Social Media Icons-->
-      <!-- Social Media Icons -->
-      <div class="ml-3 d-flex align-items-center">
+
+      <!-- Social icons -->
+      <div class="ms-3 d-flex align-items-center">
         <a class="btn btn-outline-primary btn-sm rounded-circle mx-1" href="https://www.facebook.com/spongeyangel"
           target="_blank" aria-label="Facebook">
           <i class="bi bi-facebook"></i>
@@ -60,7 +54,19 @@
         </a>
       </div>
     </nav>
+
+    <!-- ▼ Mobile dropdown menu BELOW the navbar ▼ -->
+    <div class="collapse navbar-collapse bg-light position-fixed w-100 d-md-none" id="navbarMobile">
+      <ul class="navbar-nav text-center">
+        <li class="nav-item"><a class="nav-link" href="#HOME">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#PROJECTS">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#ABOUT">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#CONTACT">Contact</a></li>
+      </ul>
+    </div>
   </header>
+
+
 
   <!--MAIN SECTION-->
   <main class="hero-page" id="HOME">
@@ -97,9 +103,7 @@
   <!--PROJECT SECTION-->
   <section class="projects fade-in" id="PROJECTS">
     <div class="h2-container">
-      <img src="./img/leaves_left.png" alt="leaves left" />
-      <h2>My Projects</h2>
-      <img src="./img/leaves_right.png" alt="leaves right" />
+      <img src="./img/projects-text.png" alt="Projects Title" class="project-title" />
     </div>
     <ul class="project_photos"></ul>
   </section>
