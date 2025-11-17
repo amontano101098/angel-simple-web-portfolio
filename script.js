@@ -101,7 +101,8 @@ const projects = [
     and four-legged friends. Whether you're looking to
     adopt a new best friend, glam them up in their next
     OOTD, or book a weekend getaway (yes, for your pet!),
-    CritterCove has it all. It is the ULTIMATE pet paradise.`,
+    CritterCove has it all. It is the ULTIMATE pet paradise. It is developed
+    using <strong> HTML, CSS, JavaScript, and Bootstrap. Was presented to international members of CodeBlosoom. </strong>`,
     link: "https://joanneblocks.github.io/2025_CritterCove/index.html"
   },
   {
@@ -133,7 +134,7 @@ projectList.innerHTML = projects.map(project => `
       <span class="project_title">${project.title}</span>
       <p>${project.description}</p>
       <a href="${project.link}" class="learn_more ${project.title.toLowerCase().replace(/\s+/g, "_")}_link">
-        Learn More
+        Visit Now
       </a>
     </div>
   </li>
