@@ -115,14 +115,20 @@ const projects = [
     link: "https://amontano101098.github.io/Dog-Care-App/"
   },
   {
-    title: "SAFE HAVEN",
-    img: "./img/SAFEHAVEN_LOGO.png",
-    description: `Safe Haven is a safe space for people with mental health challenges. Here, they can 
-    share their daily moods, feelings, and thoughts. The platform includes a diary feature
-    and a content filter to remove irrelevant posts, helping keep the community safe and
-    supportive. We also provide daily meditation guides to promote peace of mind and overall 
-    well-being.`,
-    link: "#"
+    title: "SAMPLE LANDING PAGES FOR DIGITAL SELLERS",
+    img: "./img/digital.png",
+    description: `I created sample landing pages for digital sellers to showcase their products and services effectively.
+    These landing pages are designed to attract potential customers, highlight key features, and drive conversions.
+    It is developed using <strong> HTML, CSS, and JavaScript. </strong>`,
+    link: "https://amontano101098.github.io/landingpage_digital_seller/"
+  },
+  {
+    title: "SAMPLE LANDING PAGES FOR SERVICE BASED BUSINESSES",
+    img: "./img/digital.png",
+    description: `I created sample landing pages for service-based businesses to effectively present their offerings and attract clients.
+    These landing pages are designed to highlight the unique value propositions of various services, making it easier for potential customers to understand and engage with the business.
+    It is developed using <strong> HTML, CSS, and JavaScript. </strong>`,
+    link: "https://amontano101098.github.io/landingpage_servicebased/"
   }
 ];
 const projectList = document.querySelector(".project_photos");
@@ -131,7 +137,7 @@ projectList.innerHTML = projects.map(project => `
   <li>
     <img src="${project.img}" alt="${project.title}">
     <div class="project_text">
-      <span class="project_title">${project.title}</span>
+      <span class="project_title"><strong>${project.title}</strong></span>
       <p>${project.description}</p>
       <a href="${project.link}" class="learn_more ${project.title.toLowerCase().replace(/\s+/g, "_")}_link">
         Visit Now
