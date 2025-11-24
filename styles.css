@@ -880,12 +880,12 @@ body {
   }
 }
 
-@media (max-width: 370px) {
+@media (max-width: 375px) {
 
   .hero-icons img,
   .hero-extra img {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -896,8 +896,13 @@ body {
 
   .hero-icons img,
   .hero-extra img {
-    width: 14px;
-    height: 14px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .hero-image {
+    width: 120px;
+    /* Optional: slightly bigger portrait */
   }
 }
 
