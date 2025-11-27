@@ -95,6 +95,15 @@ form.addEventListener("submit", async function (e) {
 
 const projects = [
   {
+    title: "LABS MARITEST",
+    img: "./img/TAPH-LOGO.jpg",
+    description: `A Playground for testers that helps Test Automation 
+    Ph Students implement their Test Scripts using different Tools in 
+    Testing, such as Playwright and Cypress. This helped over 30 students
+     in a partnership between Test Automation Ph and Code Blossom.`,
+    link: "https://labs.testautomationph.com/"
+  },
+  {
     title: "CRITTER COVE",
     img: "./img/crittercove.png",
     description: `CritterCove is a one-stop haven for your furry, feathered,
