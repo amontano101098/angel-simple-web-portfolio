@@ -222,59 +222,9 @@ body {
 }
 
 
-/* Responsive */
-@media (max-width: 1024px) {
-
-  .hero-icons img,
-  .hero-extra img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .hero-container .hero-image {
-    width: 250px;
-    height: 250px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-content {
-    flex-wrap: wrap;
-    /* stack vertically on small screens */
-    gap: 1rem;
-  }
-
-  .hero-container .hero-image {
-    width: 200px;
-    height: 200px;
-  }
-
-  .hero-icons img,
-  .hero-extra img {
-    width: 50px;
-    height: 50px;
-  }
-}
-
 
 
 /* PROJECTS SECTION */
-.projects {
-  text-align: center;
-  padding: 60px 20px;
-
-  border-radius: 15px;
-}
-
-.projects h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: var(--main-color);
-
-  display: inline-block;
-  padding: 5px 10px;
-  border-radius: 15px;
-}
 
 /* Project List Layout */
 .h2-container {
@@ -314,7 +264,6 @@ body {
   padding: 25px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
   display: flex;
   flex-direction: row;
   /* image + text side by side */
@@ -420,7 +369,7 @@ body {
   /* keep it aligned left */
 }
 
-/* Leaves animation */
+/* Leaves animation 
 @keyframes leaf-left {
   0% {
     transform: translateX(-150%) rotate(-30deg);
@@ -443,16 +392,64 @@ body {
     transform: translateX(0) rotate(0deg);
     opacity: 1;
   }
-}
+}*/
 
-/* Apply animation to leaves */
+/* Apply animation to leaves 
 .h2-container img:first-child {
   animation: leaf-left 1s ease-out forwards;
 }
 
 .h2-container img:last-child {
   animation: leaf-right 1s ease-out forwards;
+} */
+
+/* Review Card (matches project_card style) */
+.review-text li.project_card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.review-text li.project_card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Avatar Image */
+.review-text img {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 86px;
+  height: 86px;
+}
+
+/* Name + Role */
+.review-text strong {
+  font-size: 1.1rem;
+  display: block;
+}
+
+.review-text small {
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+/* Review Text */
+.review-text p.review-body {
+  margin-top: 10px;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .review-text li.project_card {
+    padding: 15px;
+  }
+}
+
 
 
 /* ABOUT SECTION */
@@ -623,7 +620,42 @@ body {
 /* ---------------------- */
 /* Medium screens: ≤1200px */
 /* ---------------------- */
-@media (max-width: 1500px) {}
+
+/* Responsive */
+@media (max-width: 1024px) {
+
+  .hero-icons img,
+  .hero-extra img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hero-container .hero-image {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    flex-wrap: wrap;
+    /* stack vertically on small screens */
+    gap: 1rem;
+  }
+
+  .hero-container .hero-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-icons img,
+  .hero-extra img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+
 
 /* Tablets (max-width: 900px) */
 @media (max-width: 900px) {
