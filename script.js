@@ -88,6 +88,7 @@ form.addEventListener("submit", async function (e) {
     alert("❌ Network error. Please try again.");
   }
 });
+// End of Contact Me form
 
 // ================================
 // Making my Project Section Dynamic
@@ -154,6 +155,7 @@ projectList.innerHTML = projects.map(project => `
     </div>
   </li>
 `).join("");
+//End of projects renderer
 
 // ============================
 // Reviews Data
@@ -166,7 +168,7 @@ const reviews = [
     review: `Angel played a key role in bringing the playground to life. Her dedication, patience, and attention to detail really showed throughout the entire development process. She approached every challenge with creativity and determination, 
     making sure the platform was not only functional but also smooth and enjoyable to use
     On top of that, Angel has been amazing in creating the social media graphics for Test Automation PH. Her designs are clean, professional, and eye-catching—always capturing the message and vibe perfectly. 
-    She consistently puts in the extra effort to make every graphic look polished and engaging..`,
+    She consistently puts in the extra effort to make every graphic look polished and engaging.`,
     date: "November 2025"
   },
   {
@@ -269,4 +271,133 @@ document.addEventListener('DOMContentLoaded', () => {
   const reviewListEl = document.querySelector('.review-text');
   renderReviews(reviewListEl, reviews);
 });
-// End of script.js
+// End of Reviews Renderer
+
+// ================================
+// BLOG POSTS (Carousel Render)
+// ================================
+
+const blogPosts = [
+  {
+    title: "Day 1: Starting Over as an IT Graduate in 2026",
+    url: "https://www.linkedin.com/embed/feed/update/urn:li:share:7398040652292395008?collapsed=1",
+  },
+  {
+    title: "DAY 2 — Relearning HTML",
+    url: "https://www.linkedin.com/embed/feed/update/urn:li:share:7398042778473127936?collapsed=1",
+  },
+  {
+    title: "DAY 3 — CSS and the Art of Patience",
+    url: "https://www.linkedin.com/embed/feed/update/urn:li:share:7398046933627523072?collapsed=1",
+  },
+  {
+    title: "DAY 4 — First Wins with JavaScript",
+    url: "https://www.linkedin.com/embed/feed/update/urn:li:share:7398367838811451392?collapsed=1", // check that this isn't accidentally duplicated
+  },
+  {
+    title: " DAY 5 — Understanding DOM Manipulation",
+    url: "https://www.linkedin.com/embed/feed/update/urn:li:share:7398681136228548608?collapsed=1",
+  },
+  {
+    title: "  DAY 6 — Building My First Small Interactive Project",
+    url: "https://www.linkedin.com/embed/feed/update/urn:li:share:7398698063810293760?collapsed=1",
+  },
+  {
+    title: "DAY 7 — Catch the Code Blossom Offer: Free Learning for Women in Tech! 🌸💻",
+    url: "https://www.linkedin.com/embed/feed/update/urn:li:share:7399687158006992896?collapsed=1",
+  },
+  {
+    title: " DAY 8 — Is AI gonna replace Human?",
+    url: "https://www.linkedin.com/embed/feed/update/urn:li:share:7400070732912918530?collapsed=1",
+  },
+];
+
+/**
+ * Accepts either:
+ *  - a full LinkedIn embed URL (https://www.linkedin.com/embed/feed/update/urn:li:share:...),
+ *  - or a URN like "urn:li:share:123..."
+ * Returns a safe iframe src string for LinkedIn embed.
+ */
+function getLinkedInEmbedSrc(urlOrUrn) {
+  if (!urlOrUrn) return null;
+
+  // If it's already a full embed URL, return it (trim whitespace)
+  const trimmed = urlOrUrn.trim();
+
+  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+    // Ensure it points to /embed/feed/update/...
+    if (trimmed.includes("/embed/feed/update/")) {
+      return trimmed;
+    }
+    // If user passed a normal post URL, try to extract the update part:
+    const idx = trimmed.indexOf("/update/");
+    if (idx !== -1) {
+      return "https://www.linkedin.com/embed/feed" + trimmed.slice(idx);
+    }
+  }
+
+  // If it's a URN (starts with urn:)
+  if (trimmed.startsWith("urn:")) {
+    return `https://www.linkedin.com/embed/feed/update/${encodeURIComponent(trimmed)}`;
+  }
+
+  // Fallback: try to find the 'update/...' part
+  const parts = trimmed.split("update/");
+  if (parts.length > 1) {
+    return `https://www.linkedin.com/embed/feed/update/${parts[1]}`;
+  }
+
+  // Can't resolve — return null
+  return null;
+}
+
+function getLinkedInEmbed(url) {
+  const src = getLinkedInEmbedSrc(url);
+  if (!src) return "<!-- invalid LinkedIn URL/URN -->";
+
+  // Keep iframe attributes minimal and accessible
+  return `
+    <div class="blog-iframe-wrapper" style="position:relative;padding-top:56.25%;width:100%;height:0;">
+      <iframe src="${src}"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+              allowfullscreen
+              title="LinkedIn Post"></iframe>
+    </div>
+  `;
+}
+
+function titleLink(title, url) {
+  // Use the actual url if valid, otherwise just render plain text
+  const anchor = getLinkedInEmbedSrc(url) ? `<a href="${url}" target="_blank" rel="noopener noreferrer">${title}</a>` : title;
+  return anchor;
+}
+
+function renderBlogCarousel() {
+  const carouselInner = document.getElementById("blogCarouselInner");
+  if (!carouselInner) {
+    console.warn("No element with id 'blogCarouselInner' found.");
+    return;
+  }
+  carouselInner.innerHTML = "";
+
+  blogPosts.forEach((post, index) => {
+    const isActive = index === 0 ? "active" : "";
+
+    const slide = document.createElement("div");
+    slide.className = `carousel-item ${isActive}`;
+
+    slide.innerHTML = `
+      <div class="project_card" style="padding:1rem;">
+        <h5>${titleLink(post.title.trim(), post.url)}</h5>
+        ${getLinkedInEmbed(post.url)}
+      </div>
+    `;
+
+    carouselInner.appendChild(slide);
+  });
+}
+
+// Wait until DOM is ready
+document.addEventListener("DOMContentLoaded", () => {
+  renderBlogCarousel();
+});
