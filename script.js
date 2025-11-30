@@ -160,6 +160,16 @@ projectList.innerHTML = projects.map(project => `
 // ============================
 const reviews = [
   {
+    name: "Reginald Offemaria",
+    role: "Mentor in Code Blossom /Founder/Mentor at Test Automation Ph",
+    avatar: "./img/reg_profile.jfif",
+    review: `Angel played a key role in bringing the playground to life. Her dedication, patience, and attention to detail really showed throughout the entire development process. She approached every challenge with creativity and determination, 
+    making sure the platform was not only functional but also smooth and enjoyable to use
+    On top of that, Angel has been amazing in creating the social media graphics for Test Automation PH. Her designs are clean, professional, and eye-catching—always capturing the message and vibe perfectly. 
+    She consistently puts in the extra effort to make every graphic look polished and engaging..`,
+    date: "November 2025"
+  },
+  {
     name: "Corlyne Mutemi",
     role: "Mentor — Code Blossom",
     avatar: "./img/corlyne-reviewer.png",
