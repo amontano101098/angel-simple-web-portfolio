@@ -172,6 +172,20 @@ const reviews = [
     date: "November 2025"
   },
   {
+    name: "Sana Fatima",
+    role: "Mentor/Lead Asia — Code Blossom",
+    avatar: "./img/sana_profile.jfif",
+    review: `Angelica is an outstanding mentee and a truly valuable participant. 
+    She exhibits excellence in her studies, grasps complex material quickly and 
+    applies herself diligently, resulting in high-quality work and a deep understanding 
+    of the subject matter.She is highly organized and demonstrates impeccable time management.
+     Angelica consistently completes all checklist items and assignments well before or right on time,
+      never requiring reminders or extensions.<strong> This reliability is a major asset.</strong>She also maintains a
+       highly professional demeanor in all interactions. Her approach to the program is serious,
+        respectful, and mature.I highly recommend her and look forward to seeing her future success.`,
+    date: "November 2025"
+  },
+  {
     name: "Corlyne Mutemi",
     role: "Mentor — Code Blossom",
     avatar: "./img/corlyne-reviewer.png",
